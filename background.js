@@ -35,6 +35,9 @@ function doRedirectIfSaved(tabId, server, others) {
         break;
       }
     }
+    if (redirect == null) {
+      return;
+    }
   }
 
   if (redirect.indexOf('://') < 0) {
@@ -45,19 +48,24 @@ function doRedirectIfSaved(tabId, server, others) {
 }
 
 // Called when the user changes the url of a tab.
-function onTabUpdate(tabId, changeInfo, tab) {
-  var url = tab.url;
+function onBeforeRequest(details) {
+  var url = details.url;
 
   var url_protocol_stripped = /^http[s]?:\/\/(.*)/g.exec(url);
 
   if (url_protocol_stripped != null && url_protocol_stripped.length >= 2) {
     var match = url_protocol_stripped[[1]].split("/");
-    doRedirectIfSaved(tabId, match[0], match.splice(1));
+    doRedirectIfSaved(details.tabId, match[0], match.splice(1));
   }
 }
 
 // Listen for any changes to the URL of any tab.
-chrome.tabs.onUpdated.addListener(onTabUpdate);
+chrome.webRequest.onBeforeRequest.addListener(onBeforeRequest,
+{ 
+    urls: ["<all_urls>"],
+    types: ["main_frame"],
+},
+["blocking"]);
 
 // Track changes to data object.
 chrome.storage.onChanged.addListener(function(changes, namespace) {
