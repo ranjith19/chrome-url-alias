@@ -25,7 +25,9 @@ Example:
 You can also combine dynamic and static aliases.
 
 Example:
+
 *r* (Alias) -> *http://reddit.com* (Redirect)
+
 *r/###* (Alias) -> *http://reddit.com/r/###* (Redirect)
 
 ## License
