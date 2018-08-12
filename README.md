@@ -2,9 +2,7 @@
 
 ![](https://raw.githubusercontent.com/karan/chrome-url-alias/master/icon-128.png)
 
-A handy Chrome extension to set URL aliases.
-
-[![](http://i.imgur.com/CzUM4CB.png)](https://chrome.google.com/webstore/detail/url-alias/nelckmdlallhkgniidbfafekeldjnakb)
+A fork from karan's URL Alias chrome extension that uses webRequest to intercept outgoing requests and redirect to the desired webpage, thus preventing Chrome showing "this site can't be reached" before redirecting.
 
 ### Example:
 
