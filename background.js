@@ -26,13 +26,12 @@ updateStore();
 function doRedirectIfSaved(tabId, server, others) {
   var redirect = store[server];
 
-  if (redirect == null) {
+  if (others && others.length > 1) {
     // Check if we have a matching redirect
     for (var key in store) {
       if (key.startsWith(server)) {
         // Found the server
         redirect = store[key].replace("###", others.join('/'));
-        break;
       }
     }
     if (redirect == null) {
