@@ -22,21 +22,31 @@ function updateStore() {
 };
 updateStore();
 
+function isNotEmpty(value) {
+  return value != "";
+}
+
 // Checks if 'server' is to be redirected, and executes the redirect.
 function doRedirectIfSaved(tabId, server, others) {
-  var redirect = store[server];
+  var redirect = store[server]; 
 
-  if (others && others.length > 1) {
-    // Check if we have a matching redirect
-    for (var key in store) {
-      if (key.startsWith(server)) {
-        // Found the server
-        redirect = store[key].replace("###", others.join('/'));
+  if (others) {
+    others = others.filter(isNotEmpty);
+    // Check if it's a dynamic alias
+    if (others.length > 0) {
+      // Check if we have a matching redirect
+      for (var key in store) {
+        if (key.startsWith(server) && key.includes("###")) {
+          // Found the server
+          redirect = store[key].replace("###", others.join('/'));
+          break;
+        }
       }
     }
-    if (redirect == null) {
-      return;
-    }
+  }
+
+  if (redirect == null) {
+    return;
   }
 
   if (redirect.indexOf('://') < 0) {
