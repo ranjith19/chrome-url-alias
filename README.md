@@ -22,9 +22,11 @@ Example:
 
 *r/###* (Alias) -> *http://reddit.com/r/###* (Redirect)
 
-#### Aliases synced with Google Account
+You can also combine dynamic and static aliases.
 
-All settings are synced with Google and available even if you change computers.
+Example:
+*r* (Alias) -> *http://reddit.com* (Redirect)
+*r/###* (Alias) -> *http://reddit.com/r/###* (Redirect)
 
 ## License
 
