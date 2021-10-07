@@ -12,51 +12,94 @@
 <script src="materialize.min.js"></script>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+  #toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 10%;
+    left:45%;  
+  }
+</style>
 
-  <body class="container">
-    
-    <div class="row">
-
-      <h3>URL Alias - Options test</h3>
-      <h4>Aliases</h4>
-        <p class="flow-text">Syntax</p>
-        <p class="flow-text">Strict alias: <i>m</i> (Alias) -> <i>https://mail.google.com</i> (Redirect)
-          <br>
-          Dynamic alias: Use <i>###</i> to set dynamic aliases. <i>r/###</i> (Alias) ->
-          <i>http://reddit.com/r/###</i> (Redirect)</p>
-
-        <table id="entries">
-          <thead>
-            <tr>
-              <th width="30%">Alias</th>
-              <th width="60%">Redirect to</th>
-              <th width="10%">Actions</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-
-        <button id="newEntry" class="waves-effect waves-light btn">Add New
-          Entry</button>
-        <button id="save" class="waves-effect waves-light btn">Save
-          Changes</button><span id="status"></span>
-
-        
-          <h4>AS JSON</h4>
-          <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea style="font-family: monospace;" id="json-data" class="materialize-textarea"></textarea>
-                  <label for="json-data"></label>
-                </div>
-              </div>
-            </form>
-          </div>
-          <button id="download" class="waves-effect waves-light btn">Save</button>
+<body class="container">
   
+
+  <div class="row">
+
+    <h3>URL Alias - Options test</h3>
+
+    <div class="row">
+      <div class="col s12">
+        <ul class="collapsible expandable">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Static</div>
+            <div class="collapsible-body">
+              <table>
+        
+                <tbody>
+                  <tr>
+                    <td>m</td>
+                    <td>-></td>
+                    <td>https://mail.google.com</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">flash_on</i>Dynamic</div>
+            <div class="collapsible-body">
+              <table>
+        
+                <tbody>
+                  <tr>
+                    <td>r/###</td>
+                    <td>-></td>
+                    <td>http://reddit.com/r/###</td>
+                  </tr>
+                </tbody>
+              </table>
+          </li>
+        </ul>
     </div>
+
+    <h4>Aliases</h4>
     
+
+    <table id="entries">
+      <thead>
+        <tr>
+          <th width="20%">Alias</th>
+          <th width="60%">Redirect to</th>
+          <th width="10%">Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <button id="newEntry" class="waves-effect waves-light btn">Add New
+      Entry</button>
+    <button id="save" class="waves-effect waves-light btn">Save
+      Changes</button><span id="status"></span>
+
+
+    <h4>AS JSON</h4>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea style="font-family: monospace;" id="json-data" class="materialize-textarea"></textarea>
+            <label for="json-data"></label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button id="savejson" class="waves-effect waves-light btn">Save</button>
+
+  </div>
+  
+
   </div>
 </body>
 
