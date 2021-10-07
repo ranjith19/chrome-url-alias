@@ -32,7 +32,7 @@ function onLoad() {
   // Register click handlers
   $("#save").click(save);
   $('#newEntry').click(function() { addRow("", ""); });
-  $('#download').click(downloadConfig);
+  // $('#download').click(downloadConfig);
 }
 
 // Add an individual row to the table.

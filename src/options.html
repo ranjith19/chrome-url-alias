@@ -9,54 +9,21 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="materialize.min.js"></script>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-<style>
-  body {
-    color: #303942;
-    background-color: #3F51B5;
-  }
+  <body class="container">
+    
+    <div class="row">
 
-  .content {
-    border-radius: 2px;
-    padding: 40px 56px;
-    margin-bottom: 80px;
-  }
-
-  #entries {
-    margin-top: 50px;
-    margin-bottom: 30px;
-    max-width: 500px;
-  }
-
-  #entries td {
-    text-align: center;
-  }
-
-  #entries td input {
-    width: 80%;
-  }
-
-  #status {
-    margin-left: 30px;
-  }
-</style>
-
-<body>
-  <div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-    <div class="mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--6-col">
-      <h1>URL Alias - Options test</h1>
-      <h2>Aliases</h3>
-
-        <b>Syntax</b>
-        <ul>
-          <li>Strict alias: <i>m</i> (Alias) -> <i>https://mail.google.com</i> (Redirect)</li>
-          <li>Dynamic alias: Use <i>###</i> to set dynamic aliases. <i>r/###</i> (Alias) ->
-            <i>http://reddit.com/r/###</i> (Redirect)</li>
-        </ul>
+      <h3>URL Alias - Options test</h3>
+      <h4>Aliases</h4>
+        <p class="flow-text">Syntax</p>
+        <p class="flow-text">Strict alias: <i>m</i> (Alias) -> <i>https://mail.google.com</i> (Redirect)
+          <br>
+          Dynamic alias: Use <i>###</i> to set dynamic aliases. <i>r/###</i> (Alias) ->
+          <i>http://reddit.com/r/###</i> (Redirect)</p>
 
         <table id="entries">
           <thead>
@@ -69,24 +36,24 @@
           <tbody></tbody>
         </table>
 
-        <button id="newEntry" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Add New
+        <button id="newEntry" class="waves-effect waves-light btn">Add New
           Entry</button>
-        <button id="save" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Save
+        <button id="save" class="waves-effect waves-light btn">Save
           Changes</button><span id="status"></span>
 
         
-          <h2>AS JSON</h2>
+          <h4>AS JSON</h4>
           <div class="row">
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="json-data" class="materialize-textarea"></textarea>
+                  <textarea style="font-family: monospace;" id="json-data" class="materialize-textarea"></textarea>
                   <label for="json-data"></label>
                 </div>
               </div>
             </form>
           </div>
-          <button id="download" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Save</button>
+          <button id="download" class="waves-effect waves-light btn">Save</button>
   
     </div>
     
