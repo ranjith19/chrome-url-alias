@@ -26,11 +26,13 @@ function onLoad() {
     for (var key in store) {
       addRow(key, store[key]);
     }
+    showJson()
   });
 
   // Register click handlers
   $("#save").click(save);
   $('#newEntry').click(function() { addRow("", ""); });
+  $('#download').click(downloadConfig);
 }
 
 // Add an individual row to the table.
@@ -46,5 +48,20 @@ function addRow(alias, redirect) {
 
   $('#entries tbody').append(tr);
 }
+
+function showJson(){
+  chrome.storage.sync.get('urlalias', function(store) {
+    store = store.urlalias;
+    let data = []
+    for (var key in store) {
+      data.push({key: key, value:store[key]})
+    }
+    let txt = JSON.stringify(data, undefined, 2);
+    $("#json-data").val(txt)
+    M.textareaAutoResize($('#json-data'));
+  });
+}
+
+
 
 $(document).ready(onLoad);
