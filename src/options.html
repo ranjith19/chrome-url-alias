@@ -17,88 +17,88 @@
     top: auto !important;
     right: auto !important;
     bottom: 10%;
-    left:45%;  
+    left: 45%;
   }
 </style>
 
 <body class="container">
-  
+
 
   <div class="row">
 
-    <h3>URL Alias - Options test</h3>
+    <h3>URL Alias - Options</h3>
 
-    <div class="row">
+    <div class="section">
       <div class="col s12">
-        <ul class="collapsible expandable">
-          <li>
-            <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Static</div>
-            <div class="collapsible-body">
-              <table>
-        
-                <tbody>
-                  <tr>
-                    <td>m</td>
-                    <td>-></td>
-                    <td>https://mail.google.com</td>
-                  </tr>
-                  
-                </tbody>
-              </table>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="material-icons">flash_on</i>Dynamic</div>
-            <div class="collapsible-body">
-              <table>
-        
-                <tbody>
-                  <tr>
-                    <td>r/###</td>
-                    <td>-></td>
-                    <td>http://reddit.com/r/###</td>
-                  </tr>
-                </tbody>
-              </table>
-          </li>
-        </ul>
-    </div>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Definition</th>
+              <th>-></th>
+              <th>Redirect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Static</td>
+              <td>m</td>
+              <td>-></td>
+              <td>https://mail.google.com</td>
+            </tr>
+            <tr>
+              <td>Dynamic</td>
+              <td>r/###</td>
+              <td>-></td>
+              <td>http://reddit.com/r/###</td>
+            </tr>
 
-    <h4>Aliases</h4>
-    
+          </tbody>
+        </table>
+      </div>
 
-    <table id="entries">
-      <thead>
-        <tr>
-          <th width="20%">Alias</th>
-          <th width="60%">Redirect to</th>
-          <th width="10%">Actions</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-
-    <button id="newEntry" class="waves-effect waves-light btn">Add New
-      Entry</button>
-    <button id="save" class="waves-effect waves-light btn">Save
-      Changes</button><span id="status"></span>
+      <div class="divider"></div>
 
 
-    <h4>AS JSON</h4>
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <textarea style="font-family: monospace;" id="json-data" class="materialize-textarea"></textarea>
-            <label for="json-data"></label>
-          </div>
+      <div class="section">
+        <h4>Aliases</h4>
+        <div class="section">
+        <table id="entries">
+          <thead>
+            <tr>
+              <th width="20%">Alias</th>
+              <th width="60%">Redirect to</th>
+              <th width="10%">Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
         </div>
-      </form>
-    </div>
-    <button id="savejson" class="waves-effect waves-light btn">Save</button>
 
-  </div>
-  
+        <button id="newEntry" class="waves-effect waves-light btn">Add New
+          Entry</button>
+        <button id="save" class="waves-effect waves-light btn">Save
+          Changes</button><span id="status"></span>
+      </div>
+
+      <div class="divider"></div>
+
+
+      <h4>AS JSON</h4>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea style="font-family: monospace;" id="json-data" class="materialize-textarea"></textarea>
+              <label for="json-data"></label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <button id="savejson" class="waves-effect waves-light btn">Save</button>
+
+    </div>
+
 
   </div>
 </body>
