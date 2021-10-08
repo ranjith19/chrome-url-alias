@@ -12,10 +12,14 @@ function updateStore() {
 
     // Add default keys if empty.
     if (store == null || Object.keys(store).length == 0) {
-      store = new Object();
-      store["m"] = "https://mail.google.com";
-      store["c"] = "https://calendar.google.com";
-      store["d"] = "https://drive.google.com";
+      store = {
+        m: "https://mail.google.com",
+        c: "https://calendar.google.com",
+        d: "https://drive.google.com",
+        r: "https://reddit.com",
+        w: "https://wikipedia.org",
+        alias:  chrome.extension.getURL('options.html')
+      }
       chrome.storage.sync.set({ 'urlalias': store});
     }
   });
@@ -28,6 +32,12 @@ function isNotEmpty(value) {
 
 // Checks if 'server' is to be redirected, and executes the redirect.
 function doRedirectIfSaved(tabId, server, others) {
+  if (server=="alias"){
+    var optionsUrl = chrome.extension.getURL('options.html');
+    chrome.tabs.update(tabId, { url: optionsUrl });
+    return
+  }
+  
   var redirect = store[server]; 
 
   if (others) {
@@ -87,3 +97,14 @@ if (typeof String.prototype.startsWith != 'function') {
     return this.indexOf(str) === 0;
   };
 }
+
+chrome.runtime.onInstalled.addListener(function (object) {
+  var optionsUrl = chrome.extension.getURL('options.html');
+  chrome.tabs.query({url: optionsUrl}, function(tabs) {
+    if (tabs.length) {
+        chrome.tabs.update(tabs[0].id, {active: true});
+    } else {
+        chrome.tabs.create({url: optionsUrl});
+    }
+});
+});
